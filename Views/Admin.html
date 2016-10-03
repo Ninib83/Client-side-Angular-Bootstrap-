@@ -1,0 +1,45 @@
+﻿<div class="container">
+
+    <div class="col-md-12">
+        <div class="col-md-12">
+
+            <h1 ng-bind="title"></h1>
+
+            <button type="button"
+                    class="btn btn-success"
+                    data-toggle="modal"
+                    data-target="#newProductModal">
+                <span class="glyphicon glyphicon-ok"></span>
+                Add Product
+            </button>
+            <hr />
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 col-md-3" ng-repeat="product in products track by $index">
+                <div class="thumbnail">
+                    <img ng-src="IMG/{{product.img}}.jpg" alt="...">
+                    <div class="caption">
+                        <h1 ng-bind="product.name"></h1>
+                        <p ng-bind="product.description"></p>
+                        <p>
+                            <button type="button"
+                                    class="btn btn-danger"
+                                    aria-label="Left Aligen"
+                                    ng-click="remove($index)">
+                                <span class="glyphicon glyphicon-remove"></span>
+                                Delete Product
+                            </button> <button type="button"
+                                              class="btn btn-default"
+                                              ng-click="go('/Product/' + product.id)">
+                                Edit
+                            </button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-include="'Views/Partials/NewProductModal.html'"></div>
